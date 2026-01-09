@@ -1,0 +1,945 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pantografi Elettrici - Noleggio Di Bello</title>
+    <link rel="stylesheet" href="global.css">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.7;
+        color: #1a1a1a;
+        margin: 0;
+        padding: 0;
+        background: #fafafa;
+        overflow-x: hidden;
+      }
+
+      /* Main Header */
+      header {
+        background: #ffffff;
+        padding: 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        overflow: visible;
+      }
+
+      .header-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 92px;
+      }
+
+      .header-left {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .logo {
+        height: 72px;
+        width: auto;
+        display: block;
+        object-fit: contain;
+        margin: 0;
+      }
+
+      .header-phone {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: #DC2626;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        padding: 6px 16px;
+        background: transparent;
+        border: 1.5px solid #DC2626;
+        border-radius: 6px;
+        transition: all 0.25s ease;
+        white-space: nowrap;
+        line-height: 1;
+      }
+
+      .header-phone:hover {
+        background: #DC2626;
+        color: white;
+      }
+
+      .header-phone::before {
+        content: '📞';
+        margin-right: 4px;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li a {
+        color: #1a1a1a;
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        padding: 6px 14px;
+        border-radius: 0;
+        transition: color 0.2s ease;
+        display: block;
+        white-space: nowrap;
+        line-height: 1;
+      }
+
+      nav ul li a:hover {
+        background: transparent;
+        color: #DC2626;
+      }
+
+      /* Page Content */
+      .page-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 40px 20px 80px 20px;
+      }
+
+      .page-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #1a1a1a;
+        text-align: center;
+        margin-bottom: 60px;
+        letter-spacing: -0.02em;
+      }
+
+      /* Vehicles Grid */
+      .vehicles-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 32px;
+        margin-bottom: 60px;
+      }
+
+      .vehicle-card {
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .vehicle-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+        border-color: rgba(220, 38, 38, 0.2);
+      }
+
+      .vehicle-card-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        width: 100%;
+      }
+
+      .vehicle-card-link:hover {
+        text-decoration: none;
+      }
+
+      .vehicle-image {
+        background: #f8f9fa;
+        min-height: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        transition: background 0.3s ease;
+        padding: 20px;
+      }
+
+      .vehicle-card:hover .vehicle-image {
+        background: rgba(220, 38, 38, 0.05);
+      }
+
+      .vehicle-image img {
+        max-width: 100%;
+        max-height: 160px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
+      }
+
+      .vehicle-info {
+        padding: 24px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .vehicle-name {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 12px;
+        line-height: 1.4;
+      }
+
+      /* CTA Button Section */
+      .cta-section {
+        text-align: center;
+        padding: 60px 20px;
+        background: #ffffff;
+        margin-top: 40px;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background: #DC2626;
+        color: white;
+        padding: 20px 48px;
+        font-size: 1.05rem;
+        font-weight: 700;
+        text-decoration: none;
+        border-radius: 12px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 8px rgba(220, 38, 38, 0.15);
+        border: none;
+      }
+
+      .cta-button:hover {
+        background: #b91c1c;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(220, 38, 38, 0.3);
+      }
+
+      .cta-button:active {
+        transform: translateY(0);
+      }
+
+      /* Form Preventivo Email - Layout migliorato desktop/mobile */
+      .quote-section {
+        display: flex;
+        gap: 15px;
+        align-items: flex-start;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 30px 0;
+      }
+
+      .preventivo-email-form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        flex: 1;
+        min-width: 280px;
+        max-width: 400px;
+      }
+
+      @media (min-width: 768px) {
+        .quote-section {
+          flex-wrap: nowrap;
+        }
+        
+        .preventivo-email-form {
+          flex-direction: column;
+          max-width: 350px;
+        }
+      }
+
+      .preventivo-email-form input,
+      .preventivo-email-form textarea {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid #DC2626;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        font-family: inherit;
+        color: #1a1a1a;
+        background: #ffffff;
+        transition: all 0.2s ease;
+        outline: none;
+      }
+
+      .preventivo-email-form input::placeholder,
+      .preventivo-email-form textarea::placeholder {
+        color: #9ca3af;
+      }
+
+      .preventivo-email-form input:focus,
+      .preventivo-email-form textarea:focus {
+        border-color: #DC2626;
+        box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+        outline: none;
+      }
+
+      .preventivo-email-form input.error,
+      .preventivo-email-form textarea.error {
+        border-color: #DC2626;
+        background-color: #fef2f2;
+      }
+
+      .preventivo-email-form textarea {
+        min-height: 100px;
+        resize: vertical;
+        line-height: 1.5;
+      }
+
+      .btn-preventivo-email {
+        width: 100%;
+        background: #DC2626;
+        color: white;
+        border: none;
+        padding: 14px 24px;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        height: fit-content;
+      }
+
+      @media (min-width: 768px) {
+        .btn-preventivo-email {
+          width: auto;
+          min-width: 200px;
+          align-self: flex-start;
+        }
+      }
+
+      .btn-preventivo-email:hover {
+        background: #b91c1c;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+      }
+
+      .btn-preventivo-email:active {
+        transform: translateY(0);
+      }
+
+      .btn-preventivo-email:disabled {
+        background: #9ca3af;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      /* Form footer - stesso stile ma con colore testo bianco per label se necessario */
+      .preventivo-email-form-footer {
+        max-width: 100%;
+      }
+
+      .preventivo-email-form-footer input,
+      .preventivo-email-form-footer textarea {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.3);
+        color: #ffffff;
+      }
+
+      .preventivo-email-form-footer input::placeholder,
+      .preventivo-email-form-footer textarea::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .preventivo-email-form-footer input:focus,
+      .preventivo-email-form-footer textarea:focus {
+        border-color: #ffffff;
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      /* Footer */
+      footer {
+        background: #1a1a1a;
+        color: #e5e5e5;
+        padding: 60px 20px 20px;
+        margin-top: 60px;
+      }
+
+      .footer-container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .footer-top {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .footer-cta {
+        flex: 1;
+      }
+
+      .footer-cta h3 {
+        color: white;
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+
+      .footer-cta p {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .btn-footer {
+        display: inline-block;
+        background: #DC2626;
+        color: white;
+        border: none;
+        padding: 12px 28px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 0.95rem;
+        text-decoration: none;
+      }
+
+      .btn-footer:hover {
+        background: #b91c1c;
+        transform: translateY(-1px);
+      }
+
+      .footer-newsletter {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .newsletter-input {
+        padding: 12px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+        border-radius: 8px;
+        outline: none;
+        flex: 1;
+        font-size: 0.95rem;
+      }
+
+      .newsletter-input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .newsletter-btn {
+        background: #DC2626;
+        color: white;
+        border: none;
+        padding: 12px 28px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 0.95rem;
+      }
+
+      .newsletter-btn:hover {
+        background: #b91c1c;
+        transform: translateY(-1px);
+      }
+
+      .footer-sedi {
+        margin-bottom: 40px;
+      }
+
+      .footer-sedi h3 {
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+        color: white;
+        font-weight: 600;
+      }
+
+      .sedi-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 12px;
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.8;
+      }
+
+      .footer-bottom {
+        background: rgba(255, 255, 255, 0.03);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 24px;
+        margin: 0 -20px -20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .footer-bottom-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .footer-legal {
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.9rem;
+        transition: color 0.2s ease;
+      }
+
+      .footer-links a:hover {
+        color: #DC2626;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .vehicles-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header-container {
+          height: auto;
+          min-height: 76px;
+          padding: 10px 16px;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .header-left {
+          width: 100%;
+          justify-content: space-between;
+          gap: 12px;
+          flex-wrap: nowrap;
+        }
+
+        .logo {
+          height: 64px;
+          width: auto;
+          display: block;
+          object-fit: contain;
+          margin: 0;
+          flex-shrink: 0;
+        }
+
+        .header-phone {
+          font-size: 0.8rem;
+          padding: 6px 14px;
+          flex-shrink: 0;
+        }
+
+        nav {
+          width: 100%;
+          order: 3;
+        }
+
+        nav ul {
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 6px;
+          width: 100%;
+        }
+
+        nav ul li a {
+          font-size: 0.8rem;
+          padding: 8px 12px;
+        }
+
+        .page-container {
+          padding: 20px 16px 40px 16px;
+        }
+
+        .page-title {
+          font-size: 1.75rem;
+          margin-bottom: 40px;
+        }
+
+        .vehicles-grid {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+
+        .cta-section {
+          padding: 40px 20px;
+        }
+
+        .cta-button {
+          width: 100%;
+          text-align: center;
+          padding: 16px 32px;
+          font-size: 1rem;
+        }
+
+        .footer-top {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-bottom-content {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Main Header -->
+    <header>
+      <div class="header-container">
+        <div class="header-left">
+          <a href="index.html">
+            <img src="public/logo-dibello-new.png" alt="Noleggio Di Bello" class="logo">
+          </a>
+          <a href="tel:3513888678" class="header-phone">351 388 8678</a>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html#top">Home</a></li>
+            <li><a href="index.html#categorie">Servizi</a></li>
+            <li><a href="chi-siamo.html">Chi siamo</a></li>
+            <li><a href="index.html#contatti">Contatti</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <main class="page-container">
+      <h1 class="page-title">Pantografi Elettrici</h1>
+      
+      <!-- Quote Buttons -->
+      <div class="quote-section">
+        <button class="js-whatsapp-quote" 
+                data-categoria="Pantografo elettrico"
+                data-modello="Richiesta generica pantografo elettrico"
+                style="background: #25D366; color: white; border: none; padding: 15px 30px; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; white-space: nowrap; align-self: flex-start;">
+          💬 Richiedi preventivo WhatsApp
+        </button>
+        <form class="preventivo-email-form" id="preventivoEmailForm">
+          <input id="emailPreventivo" name="email" type="email" placeholder="La tua email" required aria-required="true">
+          <textarea id="msgPreventivo" name="message" placeholder="Scrivi mezzo e date (es. Pantografo elettrico, dal __ al __)" required aria-required="true"></textarea>
+          <button type="button" class="btn-preventivo-email js-email-preventivo" id="btnEmailPreventivo">Invia richiesta via Email</button>
+        </form>
+      </div>
+      
+      <div class="vehicles-grid">
+        <a href="magni-es0607dc.html" class="vehicle-card-link">
+          <div class="vehicle-card">
+            <div class="vehicle-image">
+              <img src="public/es0607dc.png" alt="Magni ES0607DC">
+            </div>
+            <div class="vehicle-info">
+              <h3 class="vehicle-name">Magni ES0607DC – Altezza massima 6 m – Portata 240 kg</h3>
+            </div>
+          </div>
+        </a>
+
+        <a href="magni-es0708dc.html" class="vehicle-card-link">
+          <div class="vehicle-card">
+            <div class="vehicle-image">
+              <img src="public/es0708dc.png" alt="Magni ES0708DC">
+            </div>
+            <div class="vehicle-info">
+              <h3 class="vehicle-name">Magni ES0708DC – Altezza massima 8 m – Portata 230 kg</h3>
+            </div>
+          </div>
+        </a>
+
+        <a href="magni-es0808ac.html" class="vehicle-card-link">
+          <div class="vehicle-card">
+            <div class="vehicle-image">
+              <img src="public/es0808ac.png" alt="Magni ES0808AC">
+            </div>
+            <div class="vehicle-info">
+              <h3 class="vehicle-name">Magni ES0808AC – Altezza massima 8 m – Portata 380 kg</h3>
+            </div>
+          </div>
+        </a>
+
+        <a href="magni-es1612acp.html" class="vehicle-card-link">
+          <div class="vehicle-card">
+            <div class="vehicle-image">
+              <img src="public/es1612acp.png" alt="Magni ES1612ACP">
+            </div>
+            <div class="vehicle-info">
+              <h3 class="vehicle-name">Magni ES1612ACP – Altezza massima 16 m – Portata 250 kg</h3>
+            </div>
+          </div>
+        </a>
+
+        <a href="magni-es1218rt.html" class="vehicle-card-link">
+          <div class="vehicle-card">
+            <div class="vehicle-image">
+              <img src="public/es1218rt.png" alt="Magni ES1218RT">
+            </div>
+            <div class="vehicle-info">
+              <h3 class="vehicle-name">Magni ES1218RT – Altezza massima 12 m – Portata 454 kg</h3>
+            </div>
+          </div>
+        </a>
+
+        <a href="magni-dsi418rt.html" class="vehicle-card-link">
+          <div class="vehicle-card">
+            <div class="vehicle-image">
+              <img src="public/ds1418brt.png" alt="Magni DSI418RT">
+            </div>
+            <div class="vehicle-info">
+              <h3 class="vehicle-name">Magni DSI418RT – Altezza massima 14 m – Portata 363 kg</h3>
+            </div>
+          </div>
+        </a>
+
+        <a href="magni-ds2223rt.html" class="vehicle-card-link">
+          <div class="vehicle-card">
+            <div class="vehicle-image">
+              <img src="public/ds2223rt.png" alt="Magni DS2223RT">
+            </div>
+            <div class="vehicle-info">
+              <h3 class="vehicle-name">Magni DS2223RT – Altezza massima 22 m – Portata 750 kg</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+    <!-- CTA Section rimossa - usando solo CTA globale -->
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-top">
+          <div class="footer-quote-info" style="flex: 1; text-align: center; padding: 20px;">
+            <h3 style="color: white; font-size: 1.3rem; font-weight: 700; margin-bottom: 12px;">Preventivo rapido</h3>
+            <p style="color: rgba(255, 255, 255, 0.85); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">Compila date e invia richiesta. Risposta rapida.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; align-items: flex-start;">
+              <button class="js-whatsapp-quote" 
+                      data-categoria="Pantografo elettrico"
+                      data-modello="Richiesta generica pantografo elettrico"
+                      style="background: #25D366; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+                💬 WhatsApp
+              </button>
+              <form class="preventivo-email-form preventivo-email-form-footer" id="preventivoEmailFormFooter">
+                <input id="email-footer" name="email" type="email" placeholder="La tua email" required aria-required="true">
+                <textarea id="messaggio-footer" name="message" placeholder="Scrivi qui il tuo preventivo (mezzo, date, durata)" required aria-required="true"></textarea>
+                <button type="button" class="btn-preventivo-email js-email-preventivo">Richiedi preventivo via Email</button>
+              </form>
+            </div>
+          </div>
+          <div class="footer-newsletter">
+            <input type="email" class="newsletter-input" placeholder="Indirizzo e-mail">
+            <button class="newsletter-btn">Invia</button>
+          </div>
+        </div>
+        <div class="footer-sedi">
+          <h3>SEDI:</h3>
+          <div class="sedi-list">
+            <div>POTENZA</div>
+            <div>TITO SCALO</div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-content">
+            <div class="footer-legal">
+              Officine Di Bello S.r.l.<br>
+              Sede operativa: Zona Industriale – Tito Scalo (PZ)<br>
+              P. IVA / C.F.: 01788840765<br>
+              REA: PZ – 134488<br>
+              Capitale sociale: € 10.000,00 i.v.
+            </div>
+            <div class="footer-links">
+              <a href="chi-siamo.html">Chi siamo</a>
+              <a href="privacy-policy.html">Norme sulla Privacy</a>
+              <a href="condizioni-uso.html">Condizioni d'uso</a>
+              <a href="index.html#contatti">Contatti</a>
+              <a href="#stampa">Stampa</a>
+              <a href="#faq">FAQ</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="global-nav.js" defer></script>
+    <!-- GLOBAL CTA DISABILITATA per pagina categoria pantografi elettrici - usando solo nuovo pulsante dinamico -->
+    <!-- <div id="global-cta-root"></div> -->
+    <!-- <script src="global-cta.js"></script> -->
+    <script src="global-whatsapp.js"></script>
+    <script src="global.js"></script>
+    
+    <!-- Rimuove il bottone WhatsApp flottante per questa pagina -->
+    <script>
+      (function() {
+        function removeFloatingWhatsApp() {
+          const floatingBtn = document.getElementById('whatsapp-cta');
+          if (floatingBtn) {
+            floatingBtn.remove();
+          }
+        }
+        // Rimuovi immediatamente se già presente
+        removeFloatingWhatsApp();
+        // Rimuovi anche dopo che global.js lo crea
+        setTimeout(removeFloatingWhatsApp, 100);
+        setTimeout(removeFloatingWhatsApp, 500);
+      })();
+    </script>
+    
+    <!-- EMAILJS: script unificato per entrambi i pulsanti -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+      // ✅ Valori reali EmailJS
+      const SERVICE_ID = "service_qco5fon";
+      const TEMPLATE_ID = "template_ew2dlqb";
+      const PUBLIC_KEY  = "neHbrWOzLzcvDhgUD";
+
+      emailjs.init(PUBLIC_KEY);
+
+      function findFieldNear(button, selectorList) {
+        // Cerca prima nel contenitore più vicino (form / sezione / card), poi in pagina
+        const scopes = [
+          button.closest("form"),
+          button.closest(".card"),
+          button.closest(".box"),
+          button.closest("section"),
+          button.closest("div"),
+          document
+        ].filter(Boolean);
+
+        for (const scope of scopes) {
+          for (const sel of selectorList) {
+            const el = scope.querySelector(sel);
+            if (el) return el;
+          }
+        }
+        return null;
+      }
+
+      async function handleEmailClick(e) {
+        e.preventDefault();
+
+        const btn = e.currentTarget;
+
+        const nameEl = findFieldNear(btn, [
+          'input[name="name"]',
+          'input[name="nome"]',
+          'input[type="text"]'
+        ]);
+
+        const emailEl = findFieldNear(btn, [
+          'input[name="email"]',
+          'input[type="email"]'
+        ]);
+
+        const msgEl = findFieldNear(btn, [
+          'textarea[name="message"]',
+          'textarea[name="messaggio"]',
+          'input[name="message"]',
+          'input[name="messaggio"]'
+        ]);
+
+        const titleEl = findFieldNear(btn, [
+          'input[name="title"]',
+          'input[name="oggetto"]'
+        ]);
+
+        const name = (nameEl?.value || "").trim();
+        const email = (emailEl?.value || "").trim();
+        const message = (msgEl?.value || "").trim();
+        const title = (titleEl?.value || "Richiesta preventivo Pantografi Elettrici").trim();
+
+        // Validazione visiva (solo email e messaggio, nome opzionale)
+        let hasError = false;
+        if (!email || !email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+          emailEl?.classList.add('error');
+          hasError = true;
+        } else {
+          emailEl?.classList.remove('error');
+        }
+        if (!message) {
+          msgEl?.classList.add('error');
+          hasError = true;
+        } else {
+          msgEl?.classList.remove('error');
+        }
+
+        if (hasError) {
+          alert("Compila correttamente Email e Messaggio.");
+          return;
+        }
+        
+        // Se non c'è nome, usa email come nome per EmailJS
+        const finalName = name || email.split('@')[0] || "Cliente";
+
+        btn.disabled = true;
+        const testoOriginale = btn.textContent;
+        btn.textContent = "Invio in corso...";
+
+        try {
+          const res = await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+            name: finalName,
+            email,
+            title,
+            message
+          });
+
+          alert("✅ Richiesta inviata! Ti contatteremo a breve.");
+          console.log("EmailJS OK:", res);
+
+          // pulizia campi e rimozione errori visivi
+          if (emailEl) {
+            emailEl.value = "";
+            emailEl.classList.remove('error');
+          }
+          if (msgEl) {
+            msgEl.value = "";
+            msgEl.classList.remove('error');
+          }
+        } catch (err) {
+          console.error("EmailJS ERROR:", err);
+          alert("❌ Errore invio email: " + (err?.text || err?.message || "Controlla console"));
+        } finally {
+          btn.disabled = false;
+          btn.textContent = testoOriginale;
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".js-email-preventivo").forEach((btn) => {
+          btn.addEventListener("click", handleEmailClick);
+        });
+      });
+    </script>
+    <script src="cookie-banner.js"></script>
+  </body>
+</html>
+

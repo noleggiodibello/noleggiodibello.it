@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contatti - Richiedi Preventivo | Officine Di Bello</title>
+    <link rel="stylesheet" href="global.css">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 92px;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.7;
+        color: #1a1a1a;
+        margin: 0;
+        padding: 0;
+        background: #fafafa;
+        overflow-x: hidden;
+      }
+
+      /* Main Header */
+      header {
+        background: #ffffff;
+        padding: 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        overflow: visible;
+      }
+
+      .header-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 92px;
+      }
+
+      .header-left {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .logo {
+        height: 72px;
+        width: auto;
+        display: block;
+        object-fit: contain;
+        margin: 0;
+      }
+
+      .header-phone {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: #DC2626;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        padding: 6px 16px;
+        background: transparent;
+        border: 1.5px solid #DC2626;
+        border-radius: 6px;
+        transition: all 0.25s ease;
+        white-space: nowrap;
+        line-height: 1;
+      }
+
+      .header-phone:hover {
+        background: #DC2626;
+        color: white;
+      }
+
+      .header-phone::before {
+        content: '📞';
+        margin-right: 4px;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li a {
+        color: #1a1a1a;
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        padding: 6px 14px;
+        border-radius: 0;
+        transition: color 0.2s ease;
+        display: block;
+        white-space: nowrap;
+        line-height: 1;
+      }
+
+      nav ul li a:hover {
+        background: transparent;
+        color: #DC2626;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        padding: 80px 20px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .contact-section h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #1a1a1a;
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      .contact-quick-box {
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 16px;
+        padding: 32px;
+        margin-bottom: 40px;
+        text-align: center;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+      }
+
+      .contact-quick-box h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 24px;
+      }
+
+      .contact-quick-links {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+
+      .contact-quick-link {
+        display: inline-block;
+        padding: 12px 24px;
+        background: #DC2626;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .contact-quick-link:hover {
+        background: #b91c1c;
+        transform: translateY(-1px);
+      }
+
+      .contact-quick-link.whatsapp {
+        background: #25D366;
+      }
+
+      .contact-quick-link.whatsapp:hover {
+        background: #20ba5a;
+      }
+
+      .contact-quick-text {
+        color: #666;
+        font-size: 0.95rem;
+        margin-top: 16px;
+      }
+
+      .form-container {
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 16px;
+        padding: 40px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+      }
+
+      .form-group {
+        margin-bottom: 24px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #1a1a1a;
+        font-size: 0.95rem;
+      }
+
+      .form-group label .required {
+        color: #DC2626;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 8px;
+        font-size: 0.95rem;
+        font-family: inherit;
+        transition: border-color 0.2s ease;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: #DC2626;
+      }
+
+      .form-group textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .form-submit {
+        width: 100%;
+        padding: 16px 32px;
+        background: #DC2626;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 24px;
+      }
+
+      .form-submit:hover {
+        background: #b91c1c;
+        transform: translateY(-1px);
+      }
+
+      .form-submit:disabled {
+        background: #9ca3af;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      #formStatus {
+        margin-top: 16px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        text-align: center;
+        min-height: 24px;
+      }
+
+      #formStatus.success {
+        color: #059669;
+      }
+
+      #formStatus.error {
+        color: #DC2626;
+      }
+
+      /* Footer */
+      footer {
+        background: #1a1a1a;
+        color: rgba(255, 255, 255, 0.8);
+        padding: 60px 20px 20px;
+        margin-top: 80px;
+      }
+
+      .footer-container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .footer-top {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .footer-cta {
+        flex: 1;
+      }
+
+      .footer-cta h3 {
+        color: white;
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+
+      .footer-cta p {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .btn-footer {
+        display: inline-block;
+        background: #DC2626;
+        color: white;
+        border: none;
+        padding: 12px 28px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 0.95rem;
+        text-decoration: none;
+      }
+
+      .btn-footer:hover {
+        background: #b91c1c;
+        transform: translateY(-1px);
+      }
+
+      .footer-newsletter {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .newsletter-input {
+        padding: 12px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+        border-radius: 8px;
+        outline: none;
+        flex: 1;
+        font-size: 0.95rem;
+      }
+
+      .newsletter-input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .newsletter-btn {
+        background: #DC2626;
+        color: white;
+        border: none;
+        padding: 12px 28px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 0.95rem;
+      }
+
+      .newsletter-btn:hover {
+        background: #b91c1c;
+        transform: translateY(-1px);
+      }
+
+      .footer-sedi {
+        margin-bottom: 40px;
+      }
+
+      .footer-sedi h3 {
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+        color: white;
+        font-weight: 600;
+      }
+
+      .sedi-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 12px;
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.8;
+      }
+
+      .footer-bottom {
+        background: rgba(255, 255, 255, 0.03);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 24px;
+        margin: 0 -20px -20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .footer-bottom-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .footer-legal {
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.9rem;
+        transition: color 0.2s ease;
+      }
+
+      .footer-links a:hover {
+        color: #DC2626;
+      }
+
+      @media (max-width: 768px) {
+        .header-container {
+          height: auto;
+          min-height: 76px;
+          padding: 10px 16px;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .contact-section {
+          padding: 40px 16px;
+        }
+
+        .contact-section h2 {
+          font-size: 2rem;
+        }
+
+        .contact-quick-links {
+          flex-direction: column;
+        }
+
+        .contact-quick-link {
+          width: 100%;
+        }
+
+        .form-container {
+          padding: 24px;
+        }
+
+        .footer-top {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-bottom-content {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a id="top"></a>
+    <!-- Main Header -->
+    <header>
+      <div class="header-container">
+        <div class="header-left">
+          <a href="index.html">
+            <img src="public/logo-dibello-new.png" alt="Noleggio Di Bello" class="logo">
+          </a>
+          <a href="tel:+393513888678" class="header-phone">351 388 8678</a>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#categorie">Servizi</a></li>
+            <li><a href="chi-siamo.html">Chi siamo</a></li>
+            <li><a href="#preventivo">Contatti</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="preventivo">
+      <h2>Richiedi un preventivo</h2>
+
+      <!-- Quick Contact Box -->
+      <div class="contact-quick-box">
+        <h3>Contatto rapido</h3>
+        <div class="contact-quick-links">
+          <a href="tel:+393513888678" class="contact-quick-link">Chiama ora: 351 388 8678</a>
+          <a href="https://wa.me/393513888678?text=Ciao%2C%20vorrei%20un%20preventivo%20per%20noleggio%20mezzo.%20Periodo%3A%20____%20Durata%3A%20____%20Grazie." target="_blank" class="contact-quick-link whatsapp">WhatsApp: Richiedi preventivo</a>
+        </div>
+        <p class="contact-quick-text">Risposta rapida in giornata – Potenza e Tito Scalo.</p>
+      </div>
+
+      <!-- Form -->
+      <div class="form-container">
+        <form id="preventivoForm">
+          <div class="form-group">
+            <label for="nome">Nome e Cognome <span class="required">*</span></label>
+            <input type="text" id="nome" name="nome" required>
+          </div>
+
+          <div class="form-group">
+            <label for="telefono">Telefono <span class="required">*</span></label>
+            <input type="tel" id="telefono" name="telefono" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="mezzo">Mezzo richiesto <span class="required">*</span></label>
+            <select id="mezzo" name="mezzo" required>
+              <option value="">Seleziona un mezzo</option>
+              <option value="Piattaforme autocarrate">Piattaforme autocarrate</option>
+              <option value="Pantografi elettrici">Pantografi elettrici</option>
+              <option value="Piattaforme ragno">Piattaforme ragno</option>
+              <option value="Semoventi telescopici">Semoventi telescopici</option>
+              <option value="Semoventi articolati">Semoventi articolati</option>
+              <option value="Sollevatori telescopici">Sollevatori telescopici</option>
+              <option value="Escavatori">Escavatori</option>
+              <option value="Altro">Altro</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="data_inizio">Data inizio</label>
+            <input type="date" id="data_inizio" name="data_inizio">
+          </div>
+
+          <div class="form-group">
+            <label for="data_fine">Data fine</label>
+            <input type="date" id="data_fine" name="data_fine">
+          </div>
+
+          <div class="form-group">
+            <label for="messaggio">Messaggio</label>
+            <textarea id="messaggio" name="messaggio" placeholder="Eventuali note aggiuntive..."></textarea>
+          </div>
+
+          <div class="privacy-consent" style="margin: 15px 0;">
+            <label style="display: flex; align-items: flex-start; gap: 8px; cursor: pointer; font-size: 14px; line-height: 1.5;">
+              <input type="checkbox" id="privacyConsent" required style="margin-top: 2px; flex-shrink: 0;">
+              <span>Ho letto la <a href="privacy-policy.html" target="_blank" style="color: #DC2626; text-decoration: underline;">Privacy Policy</a> e acconsento al trattamento dei miei dati personali.</span>
+            </label>
+            <div id="privacyError" style="color: #DC2626; font-size: 0.875rem; margin-top: 5px; display: none;"></div>
+          </div>
+
+          <button type="submit" class="form-submit" id="btnSubmitPreventivo">Invia richiesta via Email</button>
+          <div id="formStatus" style="margin-top: 16px; font-size: 0.95rem; font-weight: 500; text-align: center; min-height: 24px;"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-top">
+          <div class="footer-cta">
+            <h3>Noleggio mezzi edili a Potenza</h3>
+            <p>
+              Piattaforme aeree, escavatori e mezzi per cantieri disponibili
+              per noleggio rapido e professionale.
+            </p>
+            <a href="contatti.html#preventivo" class="btn-footer">
+              Richiedi un preventivo
+            </a>
+            <a href="https://wa.me/393513888678?text=Ciao%2C%20vorrei%20un%20preventivo%20per%20noleggio%20mezzo.%20Periodo%3A%20____%20Durata%3A%20____%20Grazie." target="_blank" class="btn-footer btn-whatsapp" style="margin-left: 12px; background: #25D366;">
+              WhatsApp
+            </a>
+          </div>
+          <div class="footer-newsletter">
+            <input type="email" class="newsletter-input" placeholder="Indirizzo e-mail">
+            <button class="newsletter-btn">Invia</button>
+          </div>
+        </div>
+        <div class="footer-sedi">
+          <h3>SEDI:</h3>
+          <div class="sedi-list">
+            <div>POTENZA</div>
+            <div>TITO SCALO</div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-content">
+            <div class="footer-legal">
+              Officine Di Bello S.r.l.<br>
+              Sede operativa: Zona Industriale – Tito Scalo (PZ)<br>
+              P. IVA / C.F.: 01788840765<br>
+              REA: PZ – 134488<br>
+              Capitale sociale: € 10.000,00 i.v.
+            </div>
+            <div class="footer-links">
+              <a href="chi-siamo.html">Chi siamo</a>
+              <a href="privacy-policy.html">Norme sulla Privacy</a>
+              <a href="condizioni-uso.html">Condizioni d'uso</a>
+              <a href="#preventivo">Contatti</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- EMAILJS: script per invio email preventivo -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+      // ✅ Valori reali EmailJS (stessi delle altre pagine)
+      const SERVICE_ID = "service_qco5fon";
+      const TEMPLATE_ID = "template_ew2dlqb";
+      const PUBLIC_KEY  = "neHbrWOzLzcvDhgUD";
+
+      emailjs.init(PUBLIC_KEY);
+
+      document.getElementById('preventivoForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const form = e.target;
+        const submitBtn = document.getElementById('btnSubmitPreventivo');
+        const statusEl = document.getElementById('formStatus');
+        
+        // Leggi i valori del form
+        const nome = document.getElementById('nome').value.trim();
+        const telefono = document.getElementById('telefono').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const mezzo = document.getElementById('mezzo').value.trim();
+        const dataInizio = document.getElementById('data_inizio').value;
+        const dataFine = document.getElementById('data_fine').value;
+        const messaggio = document.getElementById('messaggio').value.trim();
+
+        // Validazione campi obbligatori
+        if (!nome) {
+          alert("Compila il campo Nome e Cognome.");
+          document.getElementById('nome').focus();
+          return;
+        }
+        
+        if (!telefono) {
+          alert("Compila il campo Telefono.");
+          document.getElementById('telefono').focus();
+          return;
+        }
+        
+        if (!email || !email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+          alert("Compila correttamente il campo Email.");
+          document.getElementById('email').focus();
+          return;
+        }
+        
+        if (!mezzo) {
+          alert("Seleziona un Mezzo richiesto.");
+          document.getElementById('mezzo').focus();
+          return;
+        }
+
+        // Validazione checkbox privacy
+        const privacyConsent = document.getElementById('privacyConsent');
+        const privacyError = document.getElementById('privacyError');
+        if (!privacyConsent.checked) {
+          privacyError.textContent = "Devi accettare la Privacy Policy per inviare.";
+          privacyError.style.display = "block";
+          privacyConsent.focus();
+          return;
+        } else {
+          privacyError.style.display = "none";
+        }
+
+        // Validazione date: se entrambe presenti, data_fine deve essere >= data_inizio
+        if (dataInizio && dataFine) {
+          const dataInizioObj = new Date(dataInizio);
+          const dataFineObj = new Date(dataFine);
+          
+          if (dataFineObj < dataInizioObj) {
+            alert("❌ La data fine deve essere successiva o uguale alla data inizio.");
+            document.getElementById('data_fine').focus();
+            return;
+          }
+        }
+
+        // Disabilita bottone e mostra stato invio
+        submitBtn.disabled = true;
+        const testoOriginale = submitBtn.textContent;
+        submitBtn.textContent = "Invio in corso...";
+        statusEl.textContent = "";
+        statusEl.className = "";
+
+        // Costruisci il corpo del messaggio email con tutti i campi
+        let messageBody = `Richiesta preventivo dal sito web\n\n`;
+        messageBody += `Nome: ${nome}\n`;
+        messageBody += `Telefono: ${telefono}\n`;
+        messageBody += `Email: ${email}\n`;
+        messageBody += `Mezzo richiesto: ${mezzo}\n`;
+        
+        if (dataInizio) {
+          messageBody += `Data inizio: ${dataInizio}\n`;
+        }
+        
+        if (dataFine) {
+          messageBody += `Data fine: ${dataFine}\n`;
+        } else {
+          messageBody += `Data fine: Non specificata\n`;
+        }
+        
+        if (messaggio) {
+          messageBody += `\nNote aggiuntive:\n${messaggio}`;
+        }
+
+        // Costruisci il titolo/oggetto email
+        const title = `Richiesta preventivo dal sito - ${mezzo}`;
+
+        try {
+          // Invia email tramite EmailJS
+          const res = await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+            name: nome,
+            email: email,
+            title: title,
+            message: messageBody
+          });
+
+          // Successo
+          alert("✅ Richiesta inviata correttamente! Ti contatteremo a breve.");
+          statusEl.textContent = "✅ Richiesta inviata correttamente!";
+          statusEl.className = "success";
+          console.log("EmailJS OK:", res);
+
+          // Reset form
+          form.reset();
+
+        } catch (err) {
+          // Errore
+          console.error("EmailJS ERROR:", err);
+          alert("❌ Errore invio email: " + (err?.text || err?.message || "Riprova più tardi."));
+          statusEl.textContent = "❌ Errore invio, riprova.";
+          statusEl.className = "error";
+        } finally {
+          // Riabilita bottone
+          submitBtn.disabled = false;
+          submitBtn.textContent = testoOriginale;
+        }
+      });
+    </script>
+    <script src="global-nav.js" defer></script>
+    <!-- GLOBAL CTA -->
+    <div id="global-cta-root"></div>
+    <script src="global-cta.js"></script>
+  </body>
+</html>
+

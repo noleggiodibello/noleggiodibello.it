@@ -1,0 +1,857 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Noleggio piattaforma ragno cingolata CMC S15 15 m. Soluzione professionale per cantieri e lavori edili a Potenza." />
+    <title>Noleggio Piattaforma Ragno Cingolata 15 m CMC S15 | Potenza</title>
+    <link rel="stylesheet" href="global.css">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.7;
+        color: #1a1a1a;
+        margin: 0;
+        padding: 0;
+        background: #fafafa;
+        overflow-x: hidden;
+      }
+
+      /* Main Header */
+      header {
+        background: #ffffff;
+        padding: 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        overflow: visible;
+      }
+
+      .header-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 92px;
+      }
+
+      .header-left {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .logo {
+        height: 72px;
+        width: auto;
+        display: block;
+        object-fit: contain;
+        margin: 0;
+      }
+
+      .header-phone {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: #DC2626;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        padding: 6px 16px;
+        background: transparent;
+        border: 1.5px solid #DC2626;
+        border-radius: 6px;
+        transition: all 0.25s ease;
+        white-space: nowrap;
+        line-height: 1;
+      }
+
+      .header-phone:hover {
+        background: #DC2626;
+        color: white;
+      }
+
+      .header-phone::before {
+        content: '📞';
+        margin-right: 4px;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li a {
+        color: #1a1a1a;
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        padding: 6px 14px;
+        border-radius: 0;
+        transition: color 0.2s ease;
+        display: block;
+        white-space: nowrap;
+        line-height: 1;
+      }
+
+      nav ul li a:hover {
+        background: transparent;
+        color: #DC2626;
+      }
+
+      /* Page Content */
+      .page-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 40px 20px 80px 20px;
+      }
+
+      .page-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #1a1a1a;
+        text-align: center;
+        margin-bottom: 60px;
+        letter-spacing: -0.02em;
+      }
+
+      .product-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        margin-bottom: 60px;
+        align-items: start;
+      }
+
+      .product-image-container {
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        padding: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 400px;
+      }
+
+      .product-image-container img {
+        max-width: 100%;
+        max-height: 500px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        display: block;
+      }
+
+      .product-details {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .product-section {
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 16px;
+        padding: 32px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+      }
+
+      .product-section h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 24px;
+      }
+
+      .product-section p {
+        color: #4a4a4a;
+        line-height: 1.8;
+        margin-bottom: 16px;
+      }
+
+      .product-section p:last-child {
+        margin-bottom: 0;
+      }
+
+      .product-section ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .product-section ul li {
+        padding: 12px 0;
+        padding-left: 24px;
+        position: relative;
+        color: #4a4a4a;
+        line-height: 1.6;
+      }
+
+      .product-section ul li::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: #DC2626;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .back-button {
+        display: inline-block;
+        background: #DC2626;
+        color: white;
+        padding: 16px 32px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 12px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 8px rgba(220, 38, 38, 0.15);
+        margin-top: 40px;
+      }
+
+      .back-button:hover {
+        background: #b91c1c;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(220, 38, 38, 0.3);
+      }
+
+      .back-button:active {
+        transform: translateY(0);
+      }
+
+      .button-container {
+        text-align: center;
+      }
+
+      /* Form Preventivo Email - Layout migliorato desktop/mobile */
+      .quote-section {
+        display: flex;
+        gap: 15px;
+        align-items: flex-start;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 30px 0;
+      }
+
+      .preventivo-email-form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        flex: 1;
+        min-width: 280px;
+        max-width: 400px;
+      }
+
+      @media (min-width: 768px) {
+        .quote-section {
+          flex-wrap: nowrap;
+        }
+        
+        .preventivo-email-form {
+          flex-direction: column;
+          max-width: 350px;
+        }
+      }
+
+      .preventivo-email-form input,
+      .preventivo-email-form textarea {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid #DC2626;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        font-family: inherit;
+        color: #1a1a1a;
+        background: #ffffff;
+        transition: all 0.2s ease;
+        outline: none;
+      }
+
+      .preventivo-email-form input::placeholder,
+      .preventivo-email-form textarea::placeholder {
+        color: #9ca3af;
+      }
+
+      .preventivo-email-form input:focus,
+      .preventivo-email-form textarea:focus {
+        border-color: #DC2626;
+        box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+        outline: none;
+      }
+
+      .preventivo-email-form input.error,
+      .preventivo-email-form textarea.error {
+        border-color: #DC2626;
+        background-color: #fef2f2;
+      }
+
+      .preventivo-email-form textarea {
+        min-height: 100px;
+        resize: vertical;
+        line-height: 1.5;
+      }
+
+      .btn-preventivo-email {
+        width: 100%;
+        background: #DC2626;
+        color: white;
+        border: none;
+        padding: 14px 24px;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        height: fit-content;
+      }
+
+      @media (min-width: 768px) {
+        .btn-preventivo-email {
+          width: auto;
+          min-width: 200px;
+          align-self: flex-start;
+        }
+      }
+
+      .btn-preventivo-email:hover {
+        background: #b91c1c;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+      }
+
+      .btn-preventivo-email:active {
+        transform: translateY(0);
+      }
+
+      .btn-preventivo-email:disabled {
+        background: #9ca3af;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      /* Form footer - stesso stile ma con colore testo bianco per label se necessario */
+      .preventivo-email-form-footer {
+        max-width: 100%;
+      }
+
+      .preventivo-email-form-footer input,
+      .preventivo-email-form-footer textarea {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.3);
+        color: #ffffff;
+      }
+
+      .preventivo-email-form-footer input::placeholder,
+      .preventivo-email-form-footer textarea::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .preventivo-email-form-footer input:focus,
+      .preventivo-email-form-footer textarea:focus {
+        border-color: #ffffff;
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      /* Footer */
+      footer {
+        background: #1a1a1a;
+        color: #e5e5e5;
+        padding: 60px 20px 20px;
+        margin-top: 60px;
+      }
+
+      .footer-container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .footer-top {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Social icons removed */
+
+      .footer-newsletter {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .newsletter-input {
+        padding: 12px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+        border-radius: 8px;
+        outline: none;
+        flex: 1;
+        font-size: 0.95rem;
+      }
+
+      .newsletter-input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .newsletter-btn {
+        background: #DC2626;
+        color: white;
+        border: none;
+        padding: 12px 28px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 0.95rem;
+      }
+
+      .newsletter-btn:hover {
+        background: #b91c1c;
+        transform: translateY(-1px);
+      }
+
+      .footer-sedi {
+        margin-bottom: 40px;
+      }
+
+      .footer-sedi h3 {
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+        color: white;
+        font-weight: 600;
+      }
+
+      .sedi-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 12px;
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.8;
+      }
+
+      .footer-bottom {
+        background: rgba(255, 255, 255, 0.03);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 24px;
+        margin: 0 -20px -20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .footer-bottom-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .footer-legal {
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.9rem;
+        transition: color 0.2s ease;
+      }
+
+      .footer-links a:hover {
+        color: #DC2626;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .product-content {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header-container {
+          height: auto;
+          min-height: 76px;
+          padding: 10px 16px;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .header-left {
+          width: 100%;
+          justify-content: space-between;
+          gap: 12px;
+          flex-wrap: nowrap;
+        }
+
+        .logo {
+          height: 64px;
+          width: auto;
+          display: block;
+          object-fit: contain;
+          margin: 0;
+          flex-shrink: 0;
+        }
+
+        .header-phone {
+          font-size: 0.8rem;
+          padding: 6px 14px;
+          flex-shrink: 0;
+        }
+
+        nav {
+          width: 100%;
+          order: 3;
+        }
+
+        nav ul {
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 6px;
+          width: 100%;
+        }
+
+        nav ul li a {
+          font-size: 0.8rem;
+          padding: 8px 12px;
+        }
+
+        .page-container {
+          padding: 20px 16px 40px 16px;
+        }
+
+        .page-title {
+          font-size: 1.75rem;
+          margin-bottom: 40px;
+        }
+
+        .product-image-container {
+          padding: 20px;
+          min-height: 300px;
+        }
+
+        .product-section {
+          padding: 24px;
+        }
+
+        .footer-top {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-bottom-content {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Main Header -->
+    <header>
+      <div class="header-container">
+        <div class="header-left">
+          <a href="index.html">
+            <img src="public/logo-dibello-new.png" alt="Noleggio Di Bello" class="logo">
+          </a>
+          <a href="tel:3513888678" class="header-phone">351 388 8678</a>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#categorie">Servizi</a></li>
+            <li><a href="chi-siamo.html">Chi siamo</a></li>
+            <li><a href="index.html#contatti">Contatti</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <main class="page-container">
+      <h1 class="page-title">Noleggio Piattaforma Ragno Cingolata 15 m – CMC S15</h1>
+      
+      <!-- Quote Buttons -->
+      <div class="quote-section">
+        <button class="js-whatsapp-quote" 
+                data-categoria="Piattaforma Ragno"
+                data-modello="CMC S15"
+                style="background: #25D366; color: white; border: none; padding: 15px 30px; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; white-space: nowrap; align-self: flex-start;">
+          💬 Richiedi preventivo WhatsApp
+        </button>
+        <form class="preventivo-email-form" id="preventivoEmailForm">
+          <input id="emailPreventivo" name="email" type="email" placeholder="La tua email" required aria-required="true">
+          <textarea id="msgPreventivo" name="message" placeholder="Scrivi mezzo e date (es. CMC S15, dal __ al __)" required aria-required="true"></textarea>
+          <button type="button" class="btn-preventivo-email js-email-preventivo" id="btnEmailPreventivo">Invia richiesta via Email</button>
+        </form>
+      </div>
+      
+      <!-- Product CTA rimossa - usando solo CTA globale -->
+      
+      <div class="product-content">
+        <div class="product-image-container">
+          <img src="public/s15.png" alt="Piattaforma ragno cingolata CMC S15 15 metri per noleggio">
+        </div>
+        
+        <div class="product-details">
+          <div class="product-section">
+            <h2>Descrizione</h2>
+            <p>Il servizio di noleggio della piattaforma ragno cingolata CMC S15 è disponibile per imprese edili, operatori del settore costruzioni e professionisti che necessitano di attrezzature professionali per progetti di breve o lunga durata. Offriamo soluzioni di noleggio flessibili, con consegna direttamente in cantiere e assistenza tecnica dedicata per garantire continuità operativa e massima efficienza durante l'utilizzo.</p>
+            <p>La piattaforma ragno cingolata 15 metri CMC S15 è particolarmente indicata per imprese edili impegnate in lavori di manutenzione, edilizia leggera, potature e installazioni in quota. Grazie alla sua struttura articolata e alle dimensioni contenute, consente di operare con precisione in contesti complessi come centri storici, cortili interni, aree verdi e cantieri con accessi limitati dove la compattezza è fondamentale.</p>
+            <p>La CMC S15 è una piattaforma ragno cingolata compatta e versatile, progettata per garantire ottime prestazioni in spazi ristretti e su terreni difficili. La combinazione tra stabilità, maneggevolezza e facilità di trasporto rende la S15 una soluzione ideale per operazioni professionali che richiedono efficienza operativa e capacità di lavorare in condizioni complesse senza compromessi sulla qualità costruttiva. La struttura robusta garantisce sicurezza, precisione e affidabilità anche nelle condizioni di lavoro più impegnative.</p>
+            <p>La piattaforma ragno S15 è ideale per lavori di manutenzione, edilizia leggera, potature e installazioni in quota in contesti complessi. La combinazione tra prestazioni operative e compattezza la rende una scelta strategica per progetti che richiedono efficienza operativa e capacità di lavorare in spazi limitati senza compromessi sulla qualità costruttiva.</p>
+            <p>Per informazioni su disponibilità, tariffe di noleggio e modalità di consegna della piattaforma ragno cingolata CMC S15 a Potenza, contattaci per ricevere un preventivo personalizzato. Il nostro team è disponibile per valutare le tue esigenze operative e proporre la soluzione di noleggio più adatta al tuo progetto.</p>
+          </div>
+          
+          <div class="product-section">
+            <h2>Caratteristiche tecniche</h2>
+            <ul>
+              <li>Modello: S15</li>
+              <li>Altezza di lavoro: 14,9 m</li>
+              <li>Sbraccio massimo: 6,9 m</li>
+              <li>Portata cestello: 230 kg</li>
+              <li>Misure cesta: 1,4 × 0,7 × 1,1 m</li>
+              <li>Peso: 1.920 kg</li>
+            </ul>
+          </div>
+          
+          <div class="product-section">
+            <h2>Per quali lavori è indicato</h2>
+            <p>La piattaforma ragno cingolata CMC S15 è ideale per una vasta gamma di applicazioni professionali. Risulta particolarmente efficace per lavori di manutenzione, edilizia leggera, potature e installazioni in quota. La struttura compatta e versatile la rende perfetta per operazioni in contesti complessi come centri storici, cortili interni, aree verdi e cantieri con accessi limitati dove è necessario garantire prestazioni elevate e precisione operativa anche in condizioni di spazio limitato.</p>
+            <p>Grazie alle prestazioni operative e alla facilità di trasporto, la S15 è adatta anche per lavori su terreni difficili, interventi in spazi ristretti e contesti dove la maneggevolezza è fondamentale. La combinazione tra stabilità, compattezza e versatilità la rende una scelta strategica per progetti che richiedono efficienza operativa e capacità di lavorare in condizioni complesse senza compromessi sulla qualità costruttiva.</p>
+          </div>
+          
+          <div class="product-section">
+            <h2>Disponibilità e noleggio</h2>
+            <p>La CMC S15 è disponibile per noleggio a breve e lungo termine, con servizio di consegna in cantiere nella provincia di Potenza. Tutte le nostre piattaforme ragno sono regolarmente manutenute secondo gli standard del costruttore e certificate per garantire massima affidabilità e sicurezza durante l'utilizzo.</p>
+            <p>Oltre alla S15, il nostro parco macchine include una gamma completa di <a href="piattaforme-ragno.html" style="color: #DC2626; text-decoration: underline;">piattaforme ragno cingolate</a> per ogni esigenza operativa, da modelli compatti per spazi ristretti fino a macchine di grande altezza per lavori complessi. Per informazioni dettagliate su disponibilità, tariffe e modalità di noleggio, consulta il nostro <a href="index.html" style="color: #DC2626; text-decoration: underline;">catalogo completo</a> o contattaci direttamente per un preventivo personalizzato.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-container">
+        <a href="piattaforme-ragno.html" class="back-button">Torna a Piattaforme Ragno</a>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-top">
+          <div class="footer-quote-info" style="flex: 1; text-align: center; padding: 20px;">
+            <h3 style="color: white; font-size: 1.3rem; font-weight: 700; margin-bottom: 12px;">Preventivo rapido</h3>
+            <p style="color: rgba(255, 255, 255, 0.85); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">Compila date e invia richiesta. Risposta rapida.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; align-items: flex-start;">
+              <button class="js-whatsapp-quote" 
+                      data-categoria="Piattaforma Ragno"
+                      data-modello="CMC S15"
+                      style="background: #25D366; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+                💬 WhatsApp
+              </button>
+              <form class="preventivo-email-form preventivo-email-form-footer" id="preventivoEmailFormFooter">
+                <input id="email-footer" name="email" type="email" placeholder="La tua email" required aria-required="true">
+                <textarea id="messaggio-footer" name="message" placeholder="Scrivi qui il tuo preventivo (mezzo, date, durata)" required aria-required="true"></textarea>
+                <button type="button" class="btn-preventivo-email js-email-preventivo">Richiedi preventivo via Email</button>
+              </form>
+            </div>
+          </div>
+          <div class="footer-newsletter">
+            <input type="email" class="newsletter-input" placeholder="Indirizzo e-mail">
+            <button class="newsletter-btn">Invia</button>
+          </div>
+        </div>
+        <div class="footer-sedi">
+          <h3>SEDI:</h3>
+          <div class="sedi-list">
+            <div>POTENZA</div>
+            <div>TITO SCALO</div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-content">
+            <div class="footer-legal">
+              Officine Di Bello S.r.l.<br>
+              Sede operativa: Zona Industriale – Tito Scalo (PZ)<br>
+              P. IVA / C.F.: 01788840765<br>
+              REA: PZ – 134488<br>
+              Capitale sociale: € 10.000,00 i.v.
+            </div>
+            <div class="footer-links">
+              <a href="chi-siamo.html">Chi siamo</a>
+              <a href="privacy-policy.html">Norme sulla Privacy</a>
+              <a href="condizioni-uso.html">Condizioni d'uso</a>
+              <a href="index.html#contatti">Contatti</a>
+              <a href="#stampa">Stampa</a>
+              <a href="#faq">FAQ</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="global-nav.js" defer></script>
+    <!-- GLOBAL CTA DISABILITATA per piattaforme ragno - usando solo nuovo pulsante dinamico -->
+    <!-- <div id="global-cta-root"></div> -->
+    <!-- <script src="global-cta.js"></script> -->
+    <script src="global-whatsapp.js"></script>
+    <script src="global.js"></script>
+    <!-- EMAILJS: script unificato per entrambi i pulsanti -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+      // ✅ Valori reali EmailJS
+      const SERVICE_ID = "service_qco5fon";
+      const TEMPLATE_ID = "template_ew2dlqb";
+      const PUBLIC_KEY  = "neHbrWOzLzcvDhgUD";
+
+      emailjs.init(PUBLIC_KEY);
+
+      function findFieldNear(button, selectorList) {
+        // Cerca prima nel contenitore più vicino (form / sezione / card), poi in pagina
+        const scopes = [
+          button.closest("form"),
+          button.closest(".card"),
+          button.closest(".box"),
+          button.closest("section"),
+          button.closest("div"),
+          document
+        ].filter(Boolean);
+
+        for (const scope of scopes) {
+          for (const sel of selectorList) {
+            const el = scope.querySelector(sel);
+            if (el) return el;
+          }
+        }
+        return null;
+      }
+
+      async function handleEmailClick(e) {
+        e.preventDefault();
+
+        const btn = e.currentTarget;
+
+        const nameEl = findFieldNear(btn, [
+          'input[name="name"]',
+          'input[name="nome"]',
+          'input[type="text"]'
+        ]);
+
+        const emailEl = findFieldNear(btn, [
+          'input[name="email"]',
+          'input[type="email"]'
+        ]);
+
+        const msgEl = findFieldNear(btn, [
+          'textarea[name="message"]',
+          'textarea[name="messaggio"]',
+          'input[name="message"]',
+          'input[name="messaggio"]'
+        ]);
+
+        const titleEl = findFieldNear(btn, [
+          'input[name="title"]',
+          'input[name="oggetto"]'
+        ]);
+
+        const name = (nameEl?.value || "").trim();
+        const email = (emailEl?.value || "").trim();
+        const message = (msgEl?.value || "").trim();
+        const title = (titleEl?.value || "Richiesta preventivo CMC S15").trim();
+
+        // Validazione visiva (solo email e messaggio, nome opzionale)
+        let hasError = false;
+        if (!email || !email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+          emailEl?.classList.add('error');
+          hasError = true;
+        } else {
+          emailEl?.classList.remove('error');
+        }
+        if (!message) {
+          msgEl?.classList.add('error');
+          hasError = true;
+        } else {
+          msgEl?.classList.remove('error');
+        }
+
+        if (hasError) {
+          alert("Compila correttamente Email e Messaggio.");
+          return;
+        }
+        
+        // Se non c'è nome, usa email come nome per EmailJS
+        const finalName = name || email.split('@')[0] || "Cliente";
+
+        btn.disabled = true;
+        const testoOriginale = btn.textContent;
+        btn.textContent = "Invio in corso...";
+
+        try {
+          const res = await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+            name: finalName,
+            email,
+            title,
+            message
+          });
+
+          alert("✅ Richiesta inviata! Ti contatteremo a breve.");
+          console.log("EmailJS OK:", res);
+
+          // pulizia campi e rimozione errori visivi
+          if (emailEl) {
+            emailEl.value = "";
+            emailEl.classList.remove('error');
+          }
+          if (msgEl) {
+            msgEl.value = "";
+            msgEl.classList.remove('error');
+          }
+        } catch (err) {
+          console.error("EmailJS ERROR:", err);
+          alert("❌ Errore invio email: " + (err?.text || err?.message || "Controlla console"));
+        } finally {
+          btn.disabled = false;
+          btn.textContent = testoOriginale;
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".js-email-preventivo").forEach((btn) => {
+          btn.addEventListener("click", handleEmailClick);
+        });
+      });
+    </script>
+  </body>
+</html>
+
+

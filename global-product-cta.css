@@ -1,0 +1,64 @@
+/* Product CTA Styles - Applicato a tutte le schede prodotto */
+.product-cta {
+  display: flex;
+  gap: 16px;
+  margin: 32px 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.product-cta-button {
+  flex: 1;
+  min-width: 200px;
+  display: inline-block;
+  padding: 16px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border: none;
+  cursor: pointer;
+}
+
+.product-cta-button.primary {
+  background: #DC2626;
+  color: white;
+}
+
+.product-cta-button.primary:hover {
+  background: #b91c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.3);
+}
+
+.product-cta-button.secondary {
+  background: #DC2626;
+  color: white;
+}
+
+.product-cta-button.secondary:hover {
+  background: #b91c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.3);
+}
+
+@media (max-width: 768px) {
+  .product-cta {
+    flex-direction: column;
+    margin: 24px 0;
+  }
+
+  .product-cta-button {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+
+
+
+
+
