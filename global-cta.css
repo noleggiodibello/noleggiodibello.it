@@ -1,0 +1,78 @@
+/* Global CTA Styles */
+#global-cta-container {
+  position: relative;
+}
+
+/* Hide footer-social if it exists */
+.footer-social {
+  display: none !important;
+}
+
+/* Hide local CTA sections to avoid duplicates */
+.cta-section,
+.product-cta,
+.footer-cta {
+  display: none !important;
+}
+
+/* Floating WhatsApp Button */
+.global-wa-float {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 9999;
+  padding: 12px 16px;
+  background: #DC2626;
+  color: white;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.global-wa-float:hover {
+  background: #b91c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.5);
+}
+
+.global-wa-float:active {
+  transform: translateY(0);
+}
+
+/* Secondary Preventivo Button Container */
+.global-preventivo-btn-container {
+  display: none; /* Hidden by default, can be shown if needed */
+}
+
+.global-preventivo-btn {
+  display: inline-block;
+  background: #DC2626;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.global-preventivo-btn:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .global-wa-float {
+    right: 12px;
+    bottom: 12px;
+    padding: 14px 16px;
+    font-size: 0.9rem;
+  }
+}
